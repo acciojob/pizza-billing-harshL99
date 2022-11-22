@@ -6,4 +6,14 @@ public class DeluxePizza extends Pizza {
         super(isVeg);
         // your code goes here
     }
+
+    @Override
+    public void addExtraCheese() {
+        return;
+    }
+
+    @Override
+    public void addExtraToppings() {
+        return;
+    }
 }
