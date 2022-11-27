@@ -54,7 +54,7 @@ public class Pizza {
         bill=bill+x+"\n";
     }
     public String getBill(){
-        // your code goes here
+
         if(!addOnceBill) {
             if (addOnceCheese)
                 addString("Extra Cheese Added: 80");
@@ -66,12 +66,13 @@ public class Pizza {
             }
             if (addOncePaperBag)
                 addString("Paperbag Added: 20");
+
             addString("Total Price: " + totalBill);
 
             addOnceBill=true;
-            return this.bill;
+            return bill;
+
         }
-        else
-            return "";
+        else return "";
     }
 }
