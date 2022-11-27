@@ -35,7 +35,10 @@ public class Pizza {
 
     public void addExtraToppings(){
         if(!addOnceTop) {
-            totalBill+=70;
+            if(isVeg)
+                totalBill+=70;
+            else
+                totalBill+=120;
             addOnceTop=true;
         }
     }
@@ -54,8 +57,12 @@ public class Pizza {
         // your code goes here
         if(addOnceCheese)
             addString("Extra Cheese Added: 80");
-        if(addOnceTop)
-            addString("Extra Toppings Added: 70");
+        if(addOnceTop) {
+            if(isVeg)
+                addString("Extra Toppings Added: 70");
+            else
+                addString("Extra Toppings Added: 120");
+        }
         if(addOncePaperBag)
             addString("Paperbag Added: 20");
         addString("Total Price: "+totalBill);
