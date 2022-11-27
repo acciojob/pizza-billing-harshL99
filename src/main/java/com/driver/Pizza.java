@@ -6,7 +6,7 @@ public class Pizza {
     private Boolean isVeg;
     private String bill="";
 
-    private Boolean addOnceCheese=false,addOnceTop=false,addOncePaperBag=false;
+    private Boolean addOnceCheese=false,addOnceTop=false,addOncePaperBag=false,addOnceBill=false;
 
     private int totalBill=0;
 
@@ -55,17 +55,23 @@ public class Pizza {
     }
     public String getBill(){
         // your code goes here
-        if(addOnceCheese)
-            addString("Extra Cheese Added: 80");
-        if(addOnceTop) {
-            if(isVeg)
-                addString("Extra Toppings Added: 70");
-            else
-                addString("Extra Toppings Added: 120");
+        if(!addOnceBill) {
+            if (addOnceCheese)
+                addString("Extra Cheese Added: 80");
+            if (addOnceTop) {
+                if (isVeg)
+                    addString("Extra Toppings Added: 70");
+                else
+                    addString("Extra Toppings Added: 120");
+            }
+            if (addOncePaperBag)
+                addString("Paperbag Added: 20");
+            addString("Total Price: " + totalBill);
+
+            addOnceBill=true;
+            return this.bill;
         }
-        if(addOncePaperBag)
-            addString("Paperbag Added: 20");
-        addString("Total Price: "+totalBill);
-        return this.bill;
+        else
+            return "";
     }
 }
