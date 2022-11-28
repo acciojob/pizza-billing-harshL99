@@ -8,18 +8,18 @@ public class Pizza {
 
     private Boolean addOnceCheese=false,addOnceTop=false,addOncePaperBag=false,addOnceBill=false;
 
-    private int totalBill=0;
+//    private int totalBill=0;
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
 
         if(isVeg)
-            price=300;
+            this.price=300;
         else
-            price=400;
+            this.price=400;
 
-        totalBill+=price;
-        addString("Base Price Of The Pizza: "+price);
+
+        addString("Base Price Of The Pizza: "+this.price);
     }
 
     public int getPrice(){
@@ -27,50 +27,52 @@ public class Pizza {
     }
 
     public void addExtraCheese(){
-        if(!addOnceCheese) {
-            totalBill+=80;
-            addOnceCheese=true;
+        if(!this.addOnceCheese) {
+            this.price+=80;
+            this.addOnceCheese=true;
         }
     }
 
     public void addExtraToppings(){
-        if(!addOnceTop) {
-            if(isVeg)
-                totalBill+=70;
-            else
-                totalBill+=120;
-            addOnceTop=true;
+        if(!this.addOnceTop) {
+            if(this.isVeg) {
+                this.price+=70;
+            }
+            else {
+                this.price+=120;
+            }
+            this.addOnceTop=true;
         }
     }
 
     public void addTakeaway(){
-        if(!addOncePaperBag) {
-            totalBill+=20;
-            addOncePaperBag=true;
+        if(!this.addOncePaperBag) {
+            this.price+=20;
+            this.addOncePaperBag=true;
         }
     }
 
     public void addString(String x){
-        bill=bill+x+"\n";
+        this.bill=this.bill+x+"\n";
     }
     public String getBill(){
 
-        if(!addOnceBill) {
-            if (addOnceCheese)
+        if(!this.addOnceBill) {
+            if (this.addOnceCheese)
                 addString("Extra Cheese Added: 80");
-            if (addOnceTop) {
-                if (isVeg)
+            if (this.addOnceTop) {
+                if (this.isVeg)
                     addString("Extra Toppings Added: 70");
                 else
                     addString("Extra Toppings Added: 120");
             }
-            if (addOncePaperBag)
+            if (this.addOncePaperBag)
                 addString("Paperbag Added: 20");
 
-            addString("Total Price: " + totalBill);
+            addString("Total Price: " + this.price);
 
-            addOnceBill=true;
-            return bill;
+            this.addOnceBill=true;
+            return this.bill;
 
         }
         else return "";
