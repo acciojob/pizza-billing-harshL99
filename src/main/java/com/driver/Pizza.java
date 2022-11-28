@@ -75,6 +75,6 @@ public class Pizza {
             return this.bill;
 
         }
-        else return "";
+        else return this.bill;
     }
 }
